@@ -7,7 +7,7 @@ for (int i = 0; i < totalUsuario; i++)
 {
     Console.Write("Digite o nome: ");
     string novoNome = Console.ReadLine();
-    
+    Console.WriteLine();
 }
 
 
