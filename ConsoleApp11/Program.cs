@@ -1,6 +1,5 @@
-string[] nomes = new string[0];
-int totalUsuario = 0;
-string opcao = "";
+Console.WriteLine("=== CADASTRO DE USUÁRIO ===");
+Console.WriteLine();
 
 Console.Write("Quantos usuários deseja cadastrar? ");
 if (!int.TryParse(Console.ReadLine(), out int totalUsuario) || totalUsuario <= 0)
@@ -13,16 +12,31 @@ string[] nomes = new string[totalUsuario];
 
 for (int i = 0; i < totalUsuario; i++)
 {
-    Console.WriteLine("====== SISTEMA DE USUÁRIOS ======");
-    Console.WriteLine("1 - Cadastrar usuário");
-    Console.WriteLine("2 - Listar usuários");
-    Console.WriteLine("3 - Buscar usuário");
-    Console.WriteLine("4 - Remover usuário");
-    Console.WriteLine("5 - Sair");
-    Console.Write("Escolha uma opção: ");
-    opcao = Console.ReadLine();
+    Console.WriteLine("Número inválido. O programa será encerrado.");
+    return;
 }
 
+
+string[] nomes = new string[totalUsuario];
+
+for (int i = 0; i < totalUsuario; i++)
+{
+    Console.Write("Digite o nome: ");
+    string novoNome = Console.ReadLine();
+
+    if (novoNome == "")
+    {
+        Console.WriteLine("Nome não pode ser vazio!");
+        i--;
+        continue;
+    }
+
+    nomes[i] = novoNome;
+    Console.WriteLine($"Usuário '{novoNome}' cadastrado com sucesso!");
+}
+
+Console.WriteLine("== CADASTRO CONCLUÍDO ==");
+Console.WriteLine($"Total de usuários cadastrados: {totalUsuario}");
 Console.WriteLine("== CADASTRO CONCLUÍDO ==");
 Console.WriteLine($"Total de usuários cadastrados: {totalUsuario}");
 
