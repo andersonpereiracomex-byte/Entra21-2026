@@ -38,11 +38,11 @@ switch (acao)
 {
     case "1":
         bool encontrado = false;
-        for (int i = 0; i < nome.Length; i++)
+        for (int i = 0; i < nomes.Length; i++)
         {
-            if (nome[i] == nomeUsuario)
+            if (nomes[i] == nomeUsuario)
             {
-                Console.WriteLine("Usuário encontrado: " + nome[i]);
+                Console.WriteLine("Usuário encontrado: " + nomes[i]);
                 encontrado = true;
                 break;
             }
@@ -54,15 +54,15 @@ switch (acao)
         break;
     case "2":
         bool removido = false;
-        for (int i = 0; i < nome.Length; i++)
+        for (int i = 0; i < nomes.Length; i++)
         {
-            if (nome[i] == nomeUsuario)
+            if (nomes[i] == nomeUsuario)
             {
-                for (int j = i; j < nome.Length - 1; j++)
+                for (int j = i; j < nomes.Length - 1; j++)
                 {
-                    nome[j] = nome[j + 1];
+                    nomes[j] = nomes[j + 1];
                 }
-                Array.Resize(ref nome, nome.Length - 1);
+                Array.Resize(ref nomes, nomes.Length - 1);
                 Console.WriteLine("Usuário removido: " + nomeUsuario);
                 removido = true;
                 break;
