@@ -1,13 +1,26 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("=== CADASTRO DE USUÁRIO ===");
+﻿Console.WriteLine("=== CADASTRO DE USUÁRIO ===");
 Console.WriteLine();
-string[] nome = new string[0];
-int totalUsuario = 5;
+
+Console.Write("Quantos usuários deseja cadastrar? ");
+int totalUsuario = int.Parse(Console.ReadLine());
+
+string[] nomes = new string[totalUsuario];
+
 for (int i = 0; i < totalUsuario; i++)
 {
     Console.Write("Digite o nome: ");
     string novoNome = Console.ReadLine();
-    Console.WriteLine();
+
+    if (novoNome == "")
+    {
+        Console.WriteLine("Nome não pode ser vazio!");
+        i--;
+        continue;
+    }
+
+    nomes[i] = novoNome;
+    Console.WriteLine($"Usuário '{novoNome}' cadastrado com sucesso!");
 }
 
-
+Console.WriteLine("=== CADASTRO CONCLUÍDO ===");
+Console.WriteLine($"Total de usuários cadastrados: {totalUsuario}");
