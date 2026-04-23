@@ -22,5 +22,5 @@ for (int i = 0; i < totalUsuario; i++)
     Console.WriteLine($"Usuário '{novoNome}' cadastrado com sucesso!");
 }
 
-Console.WriteLine("=== CADASTRO CONCLUÍDO ===");
+Console.WriteLine("== CADASTRO CONCLUÍDO ==");
 Console.WriteLine($"Total de usuários cadastrados: {totalUsuario}");
