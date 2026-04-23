@@ -2,7 +2,11 @@ Console.WriteLine("=== CADASTRO DE USUÁRIO ===");
 Console.WriteLine();
 
 Console.Write("Quantos usuários deseja cadastrar? ");
-int totalUsuario = int.Parse(Console.ReadLine());
+if (!int.TryParse(Console.ReadLine(), out int totalUsuario) || totalUsuario <= 0)
+{
+    Console.WriteLine("Número inválido. O programa será encerrado.");
+    return;
+}
 
 string[] nomes = new string[totalUsuario];
 
@@ -78,3 +82,24 @@ switch (acao)
         break;
 }
 
+Console.WriteLine("Listagem de Usuários");
+for (int i = 0; i < nomes.Length; i++)
+
+Console.WriteLine("Deseja exibir os contatos dos usuários? (s/n)");
+string resposta = Console.ReadLine();
+switch (resposta)
+{
+    case "s":
+        Console.WriteLine("Exibindo contatos dos usuários...");
+        for (int i = 0; i < nomes.Length; i++)
+        {
+            Console.WriteLine($" {nomes[i]}");
+        }
+        break;
+    case "n":
+        Console.WriteLine("Contatos dos usuários não serão exibidos.");
+        break;
+    default:
+        Console.WriteLine("Resposta inválida.");
+        break;
+}
