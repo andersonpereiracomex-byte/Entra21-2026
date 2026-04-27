@@ -50,7 +50,7 @@ while (opcao != "4")
                 break;
             }
             Console.WriteLine("Listagem de Usuários");
-            for (int i = 0; i < nomes.Length; i++)
+            for (int i = 0; i < totalCadastrados; i++)
             {
                 Console.WriteLine($" {nomes[i]}");
             }
