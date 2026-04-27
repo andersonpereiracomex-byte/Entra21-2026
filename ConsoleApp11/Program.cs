@@ -1,32 +1,4 @@
-string[] nomes = new string[0];
-int totalUsuario = 0;
-string opcao = "";
-
-Console.Write("Quantos usuários deseja cadastrar? ");
-if (!int.TryParse(Console.ReadLine(), out int totalUsuario) || totalUsuario <= 0)
-{
-    Console.WriteLine("Número inválido. O programa será encerrado.");
-    return;
-}
-
-string[] nomes = new string[totalUsuario];
-
-for (int i = 0; i < totalUsuario; i++)
-{
-    Console.WriteLine("====== SISTEMA DE USUÁRIOS ======");
-    Console.WriteLine("1 - Cadastrar usuário");
-    Console.WriteLine("2 - Listar usuários");
-    Console.WriteLine("3 - Buscar usuário");
-    Console.WriteLine("4 - Remover usuário");
-    Console.WriteLine("5 - Sair");
-    Console.Write("Escolha uma opção: ");
-    opcao = Console.ReadLine();
-}
-
-Console.WriteLine("== CADASTRO CONCLUÍDO ==");
-Console.WriteLine($"Total de usuários cadastrados: {totalUsuario}");
-
-
+string[] nomes = new string[] { "João", "Maria", "Pedro" };
 
 Console.WriteLine("Busca ou Remoção de usuário:");
 Console.WriteLine("Digite o nome do usuário:");
@@ -35,6 +7,7 @@ Console.WriteLine("Digite a ação (buscar ou remover):");
 Console.WriteLine("1 - Buscar");
 Console.WriteLine("2 - Remover");
 string acao = Console.ReadLine();
+
 switch (acao)
 {
     case "1":
@@ -49,10 +22,9 @@ switch (acao)
             }
         }
         if (!encontrado)
-        {
             Console.WriteLine("Usuário não encontrado.");
-        }
         break;
+
     case "2":
         bool removido = false;
         for (int i = 0; i < nomes.Length; i++)
@@ -60,9 +32,8 @@ switch (acao)
             if (nomes[i] == nomeUsuario)
             {
                 for (int j = i; j < nomes.Length - 1; j++)
-                {
                     nomes[j] = nomes[j + 1];
-                }
+
                 Array.Resize(ref nomes, nomes.Length - 1);
                 Console.WriteLine("Usuário removido: " + nomeUsuario);
                 removido = true;
@@ -70,33 +41,10 @@ switch (acao)
             }
         }
         if (!removido)
-        {
             Console.WriteLine("Usuário não encontrado para remoção.");
-        }
         break;
+
     default:
         Console.WriteLine("Ação inválida.");
-        break;
-}
-
-Console.WriteLine("Listagem de Usuários");
-for (int i = 0; i < nomes.Length; i++)
-
-Console.WriteLine("Deseja exibir os contatos dos usuários? (s/n)");
-string resposta = Console.ReadLine();
-switch (resposta)
-{
-    case "s":
-        Console.WriteLine("Exibindo contatos dos usuários...");
-        for (int i = 0; i < nomes.Length; i++)
-        {
-            Console.WriteLine($" {nomes[i]}");
-        }
-        break;
-    case "n":
-        Console.WriteLine("Contatos dos usuários não serão exibidos.");
-        break;
-    default:
-        Console.WriteLine("Resposta inválida.");
         break;
 }
