@@ -43,7 +43,6 @@ switch (acao)
         if (!removido)
             Console.WriteLine("Usuário não encontrado para remoção.");
         break;
-
     default:
         Console.WriteLine("Ação inválida.");
         break;
