@@ -20,8 +20,8 @@ while (opcao != "4")
             Console.Write("Quantos usuários deseja cadastrar? ");
             if (!int.TryParse(Console.ReadLine(), out totalUsuario) || totalUsuario <= 0)
             {
-                Console.WriteLine("Número inválido. O programa será encerrado.");
-                break;
+              Console.WriteLine("Número inválido. O programa será encerrado.");
+              break;
             }
             nomes = new string[totalUsuario];
             for (int i = 0; i < totalUsuario; i++)
