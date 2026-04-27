@@ -1,4 +1,5 @@
-string[] nomes = new string[0];
+string[] nomes = new string[30];
+int totalCadastrados = 0;
 int totalUsuario = 0;
 string opcao = "";
 
@@ -23,7 +24,6 @@ while (opcao != "4")
               Console.WriteLine("Número inválido. O programa será encerrado.");
               break;
             }
-            nomes = new string[totalUsuario];
             for (int i = 0; i < totalUsuario; i++)
             {
                 Console.Write("Digite o nome: ");
@@ -34,8 +34,9 @@ while (opcao != "4")
                     i--;
                     continue;
                 }
-                nomes[i] = novoNome;
-                Console.WriteLine($"Usuário '{novoNome}' cadastrado com sucesso!");
+                nomes[totalCadastrados] = novoNome;
+                totalCadastrados++;
+                Console.WriteLine($"Usuário {novoNome} cadastrado com sucesso!");
             }
             Console.WriteLine("== CADASTRO CONCLUÍDO ==");
             Console.WriteLine($"Total de usuários cadastrados: {totalUsuario}");
@@ -52,22 +53,6 @@ while (opcao != "4")
             for (int i = 0; i < nomes.Length; i++)
             {
                 Console.WriteLine($" {nomes[i]}");
-            }
-            Console.WriteLine("Deseja exibir os contatos dos usuários? (s/n)");
-            string resposta = Console.ReadLine();
-            switch (resposta)
-            {
-                case "s":
-                    Console.WriteLine("Exibindo contatos dos usuários...");
-                    for (int i = 0; i < nomes.Length; i++)
-                        Console.WriteLine($" {nomes[i]}");
-                    break;
-                case "n":
-                    Console.WriteLine("Contatos dos usuários não serão exibidos.");
-                    break;
-                default:
-                    Console.WriteLine("Resposta inválida.");
-                    break;
             }
             break;
 
