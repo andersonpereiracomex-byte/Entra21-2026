@@ -1,38 +1,49 @@
-﻿Console.WriteLine("=== Listagem e exibição dos usuários ===\n");
-Console.Write("Digite um nome de usuário: ");
-string nome = Console.ReadLine();
+string[] nomes = new string[] { "João", "Maria", "Pedro" };
 
-if (nome != null)
-{
-    Console.WriteLine($"\nNome de usuário encontrado, Bem vindo {nome}!");
-}
-else if (nome == null)
-{
-    Console.WriteLine("Nome de usuário INVÁLIDO, tente novamente!");
-}
+Console.WriteLine("Busca ou Remoção de usuário:");
+Console.WriteLine("Digite o nome do usuário:");
+string nomeUsuario = Console.ReadLine();
+Console.WriteLine("Digite a ação (buscar ou remover):");
+Console.WriteLine("1 - Buscar");
+Console.WriteLine("2 - Remover");
+string acao = Console.ReadLine();
 
-Console.WriteLine("Listagem de Usuários");
-for (int i = 0; i < nome.Length; i++)
+switch (acao)
 {
-    Console.WriteLine($" {nome[i]}");
-}
-
-Console.WriteLine("Deseja exibir os contatos dos usuários? (s/n)");
-string resposta = Console.ReadLine();
-switch (resposta)
-{
-    case "s":
-        Console.WriteLine("Exibindo contatos dos usuários...");
-        for (int i = 0; i < nome.Length; i++)
+    case "1":
+        bool encontrado = false;
+        for (int i = 0; i < nomes.Length; i++)
         {
-            Console.WriteLine($" {nome[i]}");
+            if (nomes[i] == nomeUsuario)
+            {
+                Console.WriteLine("Usuário encontrado: " + nomes[i]);
+                encontrado = true;
+                break;
+            }
         }
+        if (!encontrado)
+            Console.WriteLine("Usuário não encontrado.");
         break;
-    case "n":
-        Console.WriteLine("Contatos dos usuários não serão exibidos.");
+
+    case "2":
+        bool removido = false;
+        for (int i = 0; i < nomes.Length; i++)
+        {
+            if (nomes[i] == nomeUsuario)
+            {
+                for (int j = i; j < nomes.Length - 1; j++)
+                    nomes[j] = nomes[j + 1];
+
+                Array.Resize(ref nomes, nomes.Length - 1);
+                Console.WriteLine("Usuário removido: " + nomeUsuario);
+                removido = true;
+                break;
+            }
+        }
+        if (!removido)
+            Console.WriteLine("Usuário não encontrado para remoção.");
         break;
     default:
-        Console.WriteLine("Resposta inválida.");
+        Console.WriteLine("Ação inválida.");
         break;
 }
-
