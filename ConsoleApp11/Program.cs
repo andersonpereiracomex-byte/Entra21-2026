@@ -10,33 +10,29 @@ else if (nome == null)
 {
     Console.WriteLine("Nome de usuário INVÁLIDO, tente novamente!");
 }
-Console.WriteLine("=== CADASTRO DE USUÁRIO ===");
-Console.WriteLine();
 
-Console.Write("Quantos usuários deseja cadastrar? ");
-if (!int.TryParse(Console.ReadLine(), out int totalUsuario) || totalUsuario <= 0)
+Console.WriteLine("Listagem de Usuários");
+for (int i = 0; i < nome.Length; i++)
 {
-    Console.WriteLine("Número inválido. O programa será encerrado.");
-    return;
+    Console.WriteLine($" {nome[i]}");
 }
 
-string[] nomes = new string[totalUsuario];
-
-for (int i = 0; i < totalUsuario; i++)
+Console.WriteLine("Deseja exibir os contatos dos usuários? (s/n)");
+string resposta = Console.ReadLine();
+switch (resposta)
 {
-    Console.Write("Digite o nome: ");
-    string novoNome = Console.ReadLine();
-
-    if (novoNome == "")
-    {
-        Console.WriteLine("Nome não pode ser vazio!");
-        i--;
-        continue;
-    }
-
-    nomes[i] = novoNome;
-    Console.WriteLine($"Usuário '{novoNome}' cadastrado com sucesso!");
+    case "s":
+        Console.WriteLine("Exibindo contatos dos usuários...");
+        for (int i = 0; i < nome.Length; i++)
+        {
+            Console.WriteLine($" {nome[i]}");
+        }
+        break;
+    case "n":
+        Console.WriteLine("Contatos dos usuários não serão exibidos.");
+        break;
+    default:
+        Console.WriteLine("Resposta inválida.");
+        break;
 }
 
-Console.WriteLine("== CADASTRO CONCLUÍDO ==");
-Console.WriteLine($"Total de usuários cadastrados: {totalUsuario}");
